@@ -11,8 +11,26 @@ android {
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
+
+  signingConfigs {
+    release {
+      storeFile file('retrofit_sample')
+      storePassword 'nandagopal'
+      keyAlias 'Retrofit_Sample'
+      keyPassword 'nandagopal'
+    }
+  }
+
   buildTypes {
     release {
+      debuggable false
+      minifyEnabled true
+      signingConfig signingConfigs.release
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+
+    debug {
+      debuggable true
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }

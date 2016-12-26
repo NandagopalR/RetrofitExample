@@ -7,7 +7,6 @@ import com.nanda.retrofitsample.helper.SSLHelper;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -54,7 +53,6 @@ public class AppController extends Application {
 
     Retrofit retrofit = new Retrofit.Builder().client(httpClient)
         .baseUrl(AppConstants.BASE_URL)
-        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build();
     return new AppRepo(retrofit.create(AppApi.class));
