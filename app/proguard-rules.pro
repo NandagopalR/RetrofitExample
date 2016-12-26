@@ -16,6 +16,13 @@
 #   public *;
 #}
 
+-dontwarn android.support.**
+
+#GSON
+-keepattributes Signature
+
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
 
 # OkHttp
  -keepattributes Signature
